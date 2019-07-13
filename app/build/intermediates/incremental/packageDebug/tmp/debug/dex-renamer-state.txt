@@ -1,0 +1,4 @@
+#Wed Jul 10 21:18:14 GMT 2019
+base.0=/home/jesse/AndroidStudioProjects/PalExpress/app/build/intermediates/dex/debug/mergeDexDebug/out
+path.0=classes.dex
+renamed.0=classes.dex

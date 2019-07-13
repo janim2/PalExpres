@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        getSupportActionBar().hide();
         main_accessories = new Accessories(MainActivity.this);
 
         //linking the xml(layout file) to the java file using the id's used in the layout file
@@ -72,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
                             //checking to see if mobile number is greater than 6
                             if (mobile_number.length() >= 10) {
                                 //if all the above are true then show a welcome message.
-                                Toast.makeText(MainActivity.this,"WELCOME",Toast.LENGTH_LONG).show();
+//                                Toast.makeText(MainActivity.this,"WELCOME",Toast.LENGTH_LONG).show();
                                 //startActivity(new Intent(MainActivity.this,Quiz_Layout.class));
                                 new LoggingIn("http://palexpress.000webhostapp.com/PalExpress/login.php",mobile_number,passworhd).execute();
                             } else {

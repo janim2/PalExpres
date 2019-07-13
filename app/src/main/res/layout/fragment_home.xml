@@ -1,20 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Home">
+    tools:context=".Home"
+    android:orientation="vertical">
 
-    <LinearLayout
+    <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="50dp"
+        android:background="@color/colorPrimary">
 
         <TextView
-            android:id="@+id/textView9"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Home"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:gravity="center_vertical"/>
+
+
+    </android.support.v7.widget.Toolbar>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="All Vendors"
+        android:textSize="20sp"
+        android:padding="20sp"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"
+        />
+
+    <!--<include layout="@layout/vendorattachment"/>-->
+    <!--<include layout="@layout/food_attachments"/>-->
+
+
+    <ProgressBar
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:id="@+id/loading"
+        android:visibility="gone"/>
+
+
+        <TextView
+            android:id="@+id/homer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Home"
-            android:textSize="20sp" />
-    </LinearLayout>
-</FrameLayout>
+            android:text="@string/refreshhome"
+            android:textSize="20sp"
+            android:layout_marginTop="10dp"
+            android:gravity="center_horizontal"/>
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <ListView
+                    android:id="@+id/vendor_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:dividerHeight="3dp"
+                    android:layout_marginTop="10dp">
+
+
+                </ListView>
+            </LinearLayout>
+        </ScrollView>
+
+</LinearLayout>
