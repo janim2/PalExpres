@@ -12,5 +12,5 @@
         android:layout_marginTop="75dp"
         android:gravity="center_horizontal"
         android:text="@string/no_orders"
-        android:textSize="50sp" />
+        android:textSize="20sp" />
 </FrameLayout>

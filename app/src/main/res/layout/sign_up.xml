@@ -23,7 +23,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Get ready to experience service like never before"
-                android:textSize="20sp"
+                android:textSize="16sp"
                 android:gravity="center"
                 android:layout_marginTop="10dp"/>
 
@@ -32,7 +32,7 @@
                 android:layout_height="wrap_content"
                 android:text="Sign Up Now"
                 android:textColor="@color/colorPrimary"
-                android:textSize="20sp"
+                android:textSize="16sp"
                 android:layout_marginTop="10dp"
                 android:gravity="center"/>
 
@@ -48,7 +48,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:textSize="20sp"
+                    android:textSize="15sp"
                     android:textStyle="bold"
                     android:gravity="center_vertical"
                     android:drawableLeft="@drawable/namey"
@@ -76,7 +76,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:textSize="20sp"
+                    android:textSize="15sp"
                     android:textStyle="bold"
                     android:gravity="center_vertical"
                     android:drawableLeft="@drawable/namey"
@@ -107,7 +107,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:textStyle="bold"
-                    android:textSize="20sp"
+                    android:textSize="15sp"
                     android:layout_gravity="center_vertical"
                     android:text="@string/email" />
 
@@ -135,7 +135,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:inputType="phone"
-                    android:textSize="20sp"
+                    android:textSize="15sp"
                     android:textStyle="bold"
                     android:gravity="center_vertical"
                     android:drawableLeft="@drawable/p_number"
@@ -167,7 +167,7 @@
                     android:layout_weight="1"
                     android:textStyle="bold"
                     android:gravity="center_vertical"
-                    android:textSize="20sp"
+                    android:textSize="15sp"
                     android:drawableLeft="@drawable/password"
                     android:text="@string/password" />
 
@@ -194,7 +194,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:textSize="20sp"
+                    android:textSize="15sp"
                     android:textStyle="bold"
                     android:gravity="center_vertical"
                     android:drawableLeft="@drawable/password"
@@ -219,7 +219,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:text="@string/sign_up"
-                android:textSize="18sp"
+                android:textSize="15sp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="120dp"
                 android:textColor="@android:color/white"

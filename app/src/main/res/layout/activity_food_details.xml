@@ -11,84 +11,98 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Food name"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:id="@+id/foodnamee"
-            android:padding="20dp"
+            android:padding="15dp"
             android:gravity="center_vertical"/>
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <LinearLayout
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:adjustViewBounds="true"
-                android:scaleType="centerCrop"
-                android:id="@+id/foodimage"
-                android:src="@drawable/signupbackground"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="food description"
-                android:id="@+id/fooddescription"
-                android:textSize="15sp"
-                android:textColor="@android:color/black"
-                android:padding="20sp"/>
+            android:layout_height="wrap_content">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="20sp"
-                android:orientation="horizontal">
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerCrop"
+                    android:id="@+id/foodimage"
+                    android:src="@drawable/signupbackground"/>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="GHC 10.00"
-                    android:layout_weight="1"
-                    android:id="@+id/foodprize"
-                    android:textColor="@android:color/holo_red_dark"
-                    android:gravity="center"
-                    android:textSize="20sp"/>
+                    android:text="food description"
+                    android:id="@+id/fooddescription"
+                    android:textSize="14sp"
+                    android:textColor="@android:color/black"
+                    android:padding="20sp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16sp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="GHC 10.00"
+                        android:layout_weight="1"
+                        android:id="@+id/foodprize"
+                        android:textColor="@android:color/holo_red_dark"
+                        android:gravity="center"
+                        android:textSize="17sp"/>
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="ADD TO CART"
+                        android:id="@+id/foodaddtocart"
+                        android:textColor="@android:color/white"
+                        android:background="@color/colorPrimary"
+                        android:layout_weight="1"
+                        android:textSize="14sp"/>
+                </LinearLayout>
 
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="ADD TO CART"
-                    android:id="@+id/foodaddtocart"
+                    android:background="@drawable/button_background"
+                    android:text="CONTINUE"
+                    android:textSize="14sp"
+                    android:id="@+id/foodcontinue"
                     android:textColor="@android:color/white"
-                    android:background="@color/colorPrimary"
-                    android:layout_weight="1"
-                    android:textSize="15sp"/>
+                    android:layout_margin="20sp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Delivered From:  Vendor name"
+                    android:textSize="15sp"
+                    android:id="@+id/foodvendorname"
+                    android:layout_marginBottom="50dp"
+                    android:textColor="@android:color/black"
+                    android:gravity="center"/>
             </LinearLayout>
 
-            <Button
+            <ProgressBar
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/button_background"
-                android:text="CONTINUE"
-                android:textSize="20sp"
-                android:id="@+id/foodcontinue"
-                android:textColor="@android:color/white"
-                android:layout_margin="20sp"/>
+                android:layout_height="30dp"
+                android:id="@+id/loading"
+                android:layout_gravity="center"
+                android:visibility="gone"/>
+        </FrameLayout>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Delivered From:  Vendor name"
-                android:textSize="17sp"
-                android:id="@+id/foodvendorname"
-                android:layout_marginBottom="50dp"
-                android:textColor="@android:color/black"
-                android:gravity="center"/>
-        </LinearLayout>
+
     </ScrollView>
 
 </LinearLayout>

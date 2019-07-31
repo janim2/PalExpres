@@ -11,6 +11,9 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -106,6 +109,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+//    class for logging in
     class LoggingIn extends AsyncTask<Void, Void, String> {
 
         String url_location, phone_number, password;
@@ -172,12 +176,120 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, s, LENGTH_LONG).show();
                 main_accessories.put("login_checker",true);
                 startActivity(new Intent(MainActivity.this,HomeScreen.class));
+                new Fetching_UserDetails("","",mobile_number,passworhd).execute();
 
             }
             Toast.makeText(MainActivity.this, s, LENGTH_LONG).show();
         }
 
     }
+//    login class ends here
+
+//    class to get user information after the log in process is complete
+    class Fetching_UserDetails extends AsyncTask<Void, Void, String> {
+
+    String task, urlLocation;
+    //        ProgressDialog alertDialog;
+    String telephone, password;
+
+    public Fetching_UserDetails(String task, String urlLocation, String telephone, String password) {
+        this.task = task;
+        this.urlLocation = urlLocation;
+//            this.userid = uid;
+        this.telephone = telephone;
+        this.password = password;
+
+    }
+
+    @Override
+    protected void onPreExecute() {
+        super.onPreExecute();
+//            alertDialog = new ProgressDialog(Login.this);
+//            alertDialog.setMessage(task);
+//            alertDialog.setCancelable(false);
+//            alertDialog.show();
+    }
+
+    @Override
+    protected String doInBackground(Void... voids) {
+        Thread.currentThread().setPriority(Thread.MAX_PRIORITY);
+
+        try {
+            URL url = new URL(urlLocation);
+            HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+            httpURLConnection.setConnectTimeout(10000);
+            httpURLConnection.setReadTimeout(10000);
+            httpURLConnection.setRequestMethod("POST");
+            httpURLConnection.setDoOutput(true);
+            httpURLConnection.connect();
+            OutputStream outputStream = httpURLConnection.getOutputStream();
+            BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8"));
+
+            String data = URLEncoder.encode("phone", "UTF-8") + "=" + URLEncoder.encode(telephone, "UTF-8")+"&"+
+                    URLEncoder.encode("password", "UTF-8") + "=" + URLEncoder.encode(password, "UTF-8");
+
+            bufferedWriter.write(data);
+            bufferedWriter.flush();
+            bufferedWriter.close();
+            outputStream.close();
+            InputStream inputStream = httpURLConnection.getInputStream();
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+            StringBuffer stringBuffer = new StringBuffer();
+            String fetch = "";
+            while ((fetch = bufferedReader.readLine()) != null) {
+                stringBuffer.append(fetch);
+            }
+            String string = stringBuffer.toString();
+            inputStream.close();
+            return string;
+
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return "Please Check Your Internet Connection";
+    }
+
+    @Override
+    protected void onPostExecute(String s) {
+        super.onPostExecute(s);
+
+        if (!s.equals("Unable to find user details") || !s.equals("Please Check Your Internet Connection")) {
+//                String userdetails[] = s.split("-");
+            String userid = "", firstname = "", lastname = "",
+                    email = "";
+
+
+            // getting the individual values based json in php using the keys there
+            try {
+                JSONObject userobject = new JSONObject(s);
+                userid = userobject.getString("userid");
+                firstname = userobject.getString("firstname");
+                lastname = userobject.getString("lastname");
+                email = userobject.getString("email");
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+            //storing the info in the shared preferences class to future usage
+            main_accessories.put("uid", userid);
+            main_accessories.put("ufirstname", firstname);
+            main_accessories.put("ulastname", lastname);
+            main_accessories.put("uemail", email);
+            main_accessories.put("tel", mobile_number);
+            main_accessories.put("pass", passworhd);
+        } else {
+            android.app.AlertDialog.Builder getS = new android.app.AlertDialog.Builder(MainActivity.this);
+            getS.setMessage(s);
+            getS.show();
+
+        }
+//            alertDialog.dismiss();
+    }
+    }
+//    class ends here
 }
 
 
